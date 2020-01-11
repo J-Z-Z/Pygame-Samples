@@ -1,4 +1,5 @@
 import pygame
+import random
 
 class Map():
     '''定义一个地图类'''
@@ -18,16 +19,19 @@ class Map():
         self.image_map4_rect = pygame.Rect(128, 0, 32, 32)
 
         self.image_map0 = self.image.subsurface(self.image_map0_rect)
-        self.image_map1 = self.image.subsurface(self.image_map0_rect)
-        self.image_map2 = self.image.subsurface(self.image_map0_rect)
-        self.image_map3 = self.image.subsurface(self.image_map0_rect)
-        self.image_map4 = self.image.subsurface(self.image_map0_rect)
+        self.image_map1 = self.image.subsurface(self.image_map1_rect)
+        self.image_map2 = self.image.subsurface(self.image_map2_rect)
+        self.image_map3 = self.image.subsurface(self.image_map3_rect)
+        self.image_map4 = self.image.subsurface(self.image_map4_rect)
 
         self.rect_map0 = self.image_map0.get_rect()
         self.rect_map1 = self.image_map1.get_rect()
         self.rect_map2 = self.image_map2.get_rect()
         self.rect_map3 = self.image_map3.get_rect()
         self.rect_map4 = self.image_map4.get_rect()
+
+
+
 
         self.screen_rect = screen.get_rect()
 
@@ -46,6 +50,15 @@ class Map():
         self.rect_map4.centerx = self.screen_rect.centerx - 32
         self.rect_map4.bottom = self.screen_rect.bottom - 32
 
+        # 其他位置上的砖块位置，使用random库实现随机位置
+        self.mapnumber = random.randint(20, 30)
+        self.rect_list = []
+        for i in range(self.mapnumber):
+            self.mapnumber_x = random.randint(100, 700)
+            self.mapnumber_y = random.randint(100, 500)
+            self.rect_list.append((self.mapnumber_x,self.mapnumber_y))
+
+
     def blitme(self):
         '''指定位置绘制主体'''
         self.screen.blit(self.image_map0, self.rect_map0)
@@ -58,3 +71,5 @@ class Map():
 
         self.screen.blit(self.image_map4, self.rect_map4)
 
+        for i in range(len(self.rect_list)):
+            self.screen.blit(self.image_map1, self.rect_list[i])
