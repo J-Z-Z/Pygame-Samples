@@ -17,18 +17,23 @@ def run_game():
     home = Home(screen,tk_settings)
 
     map = Map(screen,tk_settings)
+    maps = Group()
 
     play1 = Tank(screen,tk_settings)
 
     bullets = Group()
+    bullets1 = Group()
+    bullets2 = Group()
+    bullets3 = Group()
 
     while True:
         # 监测键盘鼠标事件
-        gf.check_events(tk_settings, screen, play1,bullets)
+        gf.check_events(tk_settings, screen, play1,bullets,bullets1,bullets2,bullets3)
 
-        bullets.update()
+        #有关子弹刷新相关
+        gf.update_bullets(tk_settings, bullets, bullets1, bullets2, bullets3)
 
         #有关屏幕刷新相关
-        gf.update_screen(screen,tk_settings,home,map,play1,bullets)
+        gf.update_screen(screen,tk_settings,home,maps,play1,bullets,bullets1,bullets2,bullets3)
 
 run_game()

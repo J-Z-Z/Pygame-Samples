@@ -9,6 +9,6 @@ class Settings():
         self.screen_color =(0,0,0)
 
         self.bullet_speed_factor = 20
-        self.bullet_width = 3
-        self.bullet_height = 15
+        self.bullet_width = 10
+        self.bullet_height = 10
         self.bullet_color = 255, 255, 255

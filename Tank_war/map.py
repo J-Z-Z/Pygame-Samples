@@ -1,11 +1,15 @@
 import pygame
 import random
+from pygame.sprite import Sprite
 
-class Map():
+class Map(Sprite):
     '''定义一个地图类'''
 
     #首先加载各种瓷砖tile贴图
     def __init__(self,screen,tk_settings):
+
+        super(Map, self).__init__()
+
         self.screen = screen
         self.tk_settings = tk_settings
 
@@ -53,6 +57,12 @@ class Map():
         # 其他位置上的砖块位置，使用random库实现随机位置
         self.mapnumber = random.randint(90, 100)
         self.rect_list = []
+        self.rect_list.append(self.rect_map0)
+        self.rect_list.append(self.rect_map1)
+        self.rect_list.append(self.rect_map2)
+        self.rect_list.append(self.rect_map3)
+        self.rect_list.append(self.rect_map4)
+
         for i in range(self.mapnumber):
             self.mapnumber_x = random.randrange(100, 700,32)
             self.mapnumber_y = random.randrange(100, 500,32)
@@ -61,15 +71,7 @@ class Map():
 
     def blitme(self):
         '''指定位置绘制主体'''
-        self.screen.blit(self.image_map0, self.rect_map0)
-
-        self.screen.blit(self.image_map1, self.rect_map1)
-
-        self.screen.blit(self.image_map2, self.rect_map2)
-
-        self.screen.blit(self.image_map3, self.rect_map3)
-
-        self.screen.blit(self.image_map4, self.rect_map4)
 
         for i in self.rect_list:
             self.screen.blit(self.image_map0, i)
+
