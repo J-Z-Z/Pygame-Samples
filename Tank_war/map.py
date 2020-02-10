@@ -1,14 +1,14 @@
 import pygame
 import random
-from pygame.sprite import Sprite
+#from pygame.sprite import Sprite
 
-class Map(Sprite):
+class Map():
     '''定义一个地图类'''
 
     #首先加载各种瓷砖tile贴图
     def __init__(self,screen,tk_settings):
 
-        super(Map, self).__init__()
+        #super(Map, self).__init__()
 
         self.screen = screen
         self.tk_settings = tk_settings

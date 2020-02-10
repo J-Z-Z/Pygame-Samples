@@ -87,16 +87,14 @@ def update_bullets(tk_settings,bullets,bullets1,bullets2,bullets3):
 
 
 
-def update_screen(screen,tk_settings,home,maps,play1,bullets,bullets1,bullets2,bullets3):
+def update_screen(screen,tk_settings,home,map,play1,enemy,enemy1,enemy2,bullets,bullets1,bullets2,bullets3):
     # 背景颜色刷新
     screen.fill(tk_settings.screen_color)
 
     home.blitme()
-    #map.blitme()
+    map.blitme()
 
-    for map in maps.sprites():
-       map.blitme()
-
+    #for map in maps.sprites():map.blitme()
     for bullet in bullets.sprites():
         bullet.draw_bullet()
 
@@ -110,6 +108,12 @@ def update_screen(screen,tk_settings,home,maps,play1,bullets,bullets1,bullets2,b
         bullet3.draw_bullet()
 
     play1.blitme()
+    enemy.blitme()
+    enemy1.blitme()
+    enemy2.blitme()
     play1.update()
+    enemy.update()
+    enemy1.update()
+    enemy2.update()
     # 显示屏幕
     pygame.display.flip()
