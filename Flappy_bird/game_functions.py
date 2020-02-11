@@ -21,7 +21,7 @@ def check_events(bird):
                 bird.moving = False
 
 
-def update_screen(screen,g_settings,bird,building):
+def update_screen(screen,g_settings,bird,building,building1,building2,building3,building4):
     '''更新屏幕的相关函数'''
     # 重绘游戏背景
     screen.blit(g_settings.background, (0, 0))
@@ -29,10 +29,19 @@ def update_screen(screen,g_settings,bird,building):
     # 重绘主体图片
     bird.blitme()
     building.blitme()
+    building1.blitme()
+    building2.blitme()
+    building3.blitme()
+    building4.blitme()
 
     # 更新主体自动下落
     bird.update()
     building.update()
+    building1.update()
+    building2.update()
+    building3.update()
+    building4.update()
+
 
     # 更新主体跳跃位置
     bird.move()

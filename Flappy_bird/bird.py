@@ -34,7 +34,7 @@ class Bird():
     def move(self):
         '''根据标识符来改变主体的移动状态'''
         if self.moving and 0 < self.rect.y < (self.screen_rect.bottom):
-            self.birdy -= 30
+            self.birdy -= 20
             self.rect.y = self.birdy
 
 
